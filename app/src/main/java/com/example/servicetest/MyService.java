@@ -30,6 +30,7 @@ public class MyService extends Service {
     @Override
     public void onCreate(){
         super.onCreate();
+        Log.d("MainActivity","onCreate");
     }
 
     @Override
