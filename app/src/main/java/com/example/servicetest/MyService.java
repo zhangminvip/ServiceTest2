@@ -1,12 +1,13 @@
 package com.example.servicetest;
 
+import android.app.IntentService;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
-public class MyService extends Service {
+public class MyService extends IntentService {
 
     private DownloadBinder mBinder =  new DownloadBinder();
 
@@ -24,13 +25,19 @@ public class MyService extends Service {
 
 
     public MyService() {
+        super("MyService");
+    }
+
+    @Override
+    protected void onHandleIntent(Intent intent){
+        Log.d("MainActivity","Thread id is"+Thread.currentThread().getId());
     }
 
 
     @Override
     public void onCreate(){
         super.onCreate();
-        Log.d("MainActivity","onCreate");
+        Log.d("MainActivity","我是张敏");
     }
 
     @Override
